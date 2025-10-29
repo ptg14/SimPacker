@@ -1,0 +1,55 @@
+# .gitignore for SimPacker (.NET8, Windows Forms)
+
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vscode/
+.vs/
+
+# Windows image file caches
+Thumbs.db
+Desktop.ini
+
+# NuGet packages
+*.nupkg
+# NuGet restore
+.nuget/
+
+# Backup & temp files
+*.bak
+*.tmp
+*.temp
+~$*
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+
+# Packed and unpacked output files
+*_packed.exe
+*_unpacked.exe
+
+# Stub loader temp source
+stub_loader.cs
+
+# Ignore test output
+TestResults/
+
+# Ignore publish output
+publish/
+
+# Ignore Rider IDE files
+.idea/
+
+# Ignore JetBrains Rider settings
+*.DotSettings
