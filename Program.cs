@@ -1,4 +1,4 @@
-namespace MyPack
+namespace SimPacker
 {
     internal static class Program
     {

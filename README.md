@@ -8,7 +8,7 @@ SimPacker is a simple, modern .NET8 packer for Windows executables. It compresse
 
 - **PE File Packing**: Compresses and encrypts Windows executables (PE files) using AES-256 and GZip.
 - **Self-Extracting Stub**: Generates a standalone executable that unpacks and runs the original file.
-- **Obfuscation Option**: Splits encryption keys and IVs into fragments for added security.
+- **Obfuscation Option**: Splits encryption keys and IVs into fragments and applies XOR-based obfuscation using a SHA256 hash for added security.
 - **GUI Frontend**: User-friendly Windows Forms interface for selecting, packing, and unpacking files.
 
 ---

@@ -336,6 +336,7 @@ namespace SimPacker
                 string packedDataBase64 = stubType.GetField("PACKED_DATA", BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.FlattenHierarchy)?.GetValue(null) as string;
                 string keyBase64 = stubType.GetField("KEY", BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.FlattenHierarchy)?.GetValue(null) as string;
                 string ivBase64 = stubType.GetField("IV", BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.FlattenHierarchy)?.GetValue(null) as string;
+                bool obfuscation = false;
 
                 // If KEY/IV are missing, reconstruct from fragments
                 if (keyBase64 == null || ivBase64 == null)
@@ -354,6 +355,7 @@ namespace SimPacker
                         .Select(f => f.GetValue(null) as string)
                         .ToArray();
                     ivBase64 = string.Concat(ivFrags);
+                    obfuscation = true;
                 }
 
                 if (packedDataBase64 == null || string.IsNullOrEmpty(keyBase64) || string.IsNullOrEmpty(ivBase64))
@@ -372,7 +374,7 @@ namespace SimPacker
                 PB_loading.Value = 50;
                 AppendColoredText($"[3/4] Decrypting and decompressing...\n", Color.Blue);
 
-                byte[] peData = UnpackPE(packedData, key, iv, CB_obfuscation.Checked);
+                byte[] peData = UnpackPE(packedData, key, iv, obfuscation);
 
                 if (!IsValidPE(peData))
                 {
